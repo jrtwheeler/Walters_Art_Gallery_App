@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 
 function Table(props) {
+
   return (
     <table className="table table-striped">
       <thead>
@@ -17,7 +18,6 @@ function Table(props) {
             <td>{result.Creator}</td>
             <td>{result.Culture}</td>
             <td><img src={result.PrimaryImage.Small}></img></td>
-            {/* <td><a href={result.abstract}>{result.abstract}</a></td> */}
           </tr>
         </tbody>
       ))}

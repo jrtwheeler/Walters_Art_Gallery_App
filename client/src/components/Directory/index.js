@@ -37,7 +37,8 @@ class Directory extends Component {
   };
 
   render() {
-    console.log(this.state.search);
+    console.log(this.state.results);
+    console.log(this.state.results);
     return (
       <Container>
         <Row>
