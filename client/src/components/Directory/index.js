@@ -14,28 +14,18 @@ class Directory extends Component {
   };
 
   componentDidMount() {
-    API.getResults("whistler")
-      .then((res) => this.setState({ results: res.Items }))
-      .catch((err) => console.log(err));
+    this.searchArchive("cups");
   }
 
-  searchArchive = () => {
-    API.getResults(this.state.search)
+  searchArchive = (query) => {
+    API.getResults(query)
       .then((res) => this.setState({ results: res.data.Items }))
-      .catch((err) => console.log(err));
+      .catch ((err) => console.log(err));
   };
-
-  // startArchive = () => {
-  //   API.getResults()
-  //     .then((res) => this.setState({ results: res.data.Items }))
-  //     .catch((err) => console.log(err));
-  // };
 
   handleInputChange = (event) => {
     const value = event.target.value;
     const name = event.target.name;
-    console.log(event.target);
-    console.log(value);
     this.setState({
       [name]: value,
     });
