@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Row from "../Row";
 import Col from "../Col";
-import Table from "../Table";
+import Card from "../Card";
 import SearchForm from "../SearchForm";
 import Container from "../Container";
 import API from "../../utils/API";
@@ -37,8 +37,6 @@ class Directory extends Component {
   };
 
   render() {
-    console.log(this.state.results);
-    console.log(this.state.results);
     return (
       <Container>
         <Row>
@@ -48,7 +46,7 @@ class Directory extends Component {
             handleFormSubmit={this.handleFormSubmit}
           />
           <Col size="md-12">
-            <Table results={this.state.results} />
+            <Card results={this.state.results} />
           </Col>
         </Row>
       </Container>
