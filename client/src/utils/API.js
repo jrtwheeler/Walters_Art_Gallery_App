@@ -4,7 +4,6 @@ const KEY ="&apikey=9O0bCwuMxTEBqTM1j2rJixcd0w4kuBFdCNCXJyNSGuGhtcS5QUj3gq5ClMaF
 
 export default {
   getResults: function (query) {  
-    return axios.get(BASEURL + query + KEY)
-    // .then((data) => console.log(data));
+    return axios.get(BASEURL + query + KEY);
   },
 };
