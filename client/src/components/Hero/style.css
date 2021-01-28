@@ -1,0 +1,10 @@
+/* Navbar stle */
+.header {
+    background-image: url("walters.jpg");
+    padding: 40px;
+    text-align: center;
+}
+
+.Navbar-Text {
+    color: white;
+}
