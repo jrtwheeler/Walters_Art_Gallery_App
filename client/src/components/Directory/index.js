@@ -11,6 +11,7 @@ class Directory extends Component {
     search: "",
     error: "",
     results: [],
+    filtered: []
   };
 
   componentDidMount() {
@@ -19,8 +20,8 @@ class Directory extends Component {
 
   searchArchive = (query) => {
     API.getResults(query)
-      .then((res) => this.setState({ results: res.data.Items }))
-      .catch ((err) => console.log(err));
+      .then((res) => this.setState({ results: res.data.Items, filtered: res.data.Items }))
+      .catch((err) => console.log(err));
   };
 
   handleInputChange = (event) => {
@@ -28,6 +29,7 @@ class Directory extends Component {
     const name = event.target.name;
     this.setState({
       [name]: value,
+      filtered: this.state.results.filter(result => result.DisplayLocation !== "Not On View")
     });
   };
 
@@ -46,7 +48,7 @@ class Directory extends Component {
             handleFormSubmit={this.handleFormSubmit}
           />
           <Col size="md-12">
-            <Card results={this.state.results} />
+            <Card results={this.state.filtered} />
           </Col>
         </Row>
       </Container>
