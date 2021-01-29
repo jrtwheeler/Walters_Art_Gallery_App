@@ -5,6 +5,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import ControlledCarousel from "../components/Carousel";
 import Directory from "../components/Directory";
+import CarouselDiv from "../components/CarouselDiv";
 
 function Landing() {
   return (
@@ -13,7 +14,7 @@ function Landing() {
         <h1>Walters Art Gallery</h1>
         <h4>Search. View. Collect.</h4>
       </Hero>
-      <Container style={{ marginTop: 30 }}>
+      <Container style={{ marginTop: 25 }}>
         <Row>
           <Col size="md-12">
           </Col>
@@ -22,7 +23,14 @@ function Landing() {
           <Col size="md-12">
           </Col>
         </Row>
+        <Row>
+          <Col size="md-12">
+          <CarouselDiv>
         <ControlledCarousel />
+        </CarouselDiv>
+          </Col>
+        </Row>
+        
         <Directory />
       </Container>
     </div>

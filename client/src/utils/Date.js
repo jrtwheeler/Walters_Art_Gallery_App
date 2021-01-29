@@ -1,9 +1,10 @@
-export function getCurrentDate(separator = '') {
+export function getCurrentDate() {
 
-    let newDate = new Date()
+    let newDate = new Date();
     let date = newDate.getDate();
-    let month = newDate.getMonth() + 1;
+    let month = newDate.getMonth();
     let year = newDate.getFullYear();
+    let monthNames = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-    return `${year}${separator}${month < 10 ? `0${month}` : `${month}`}${separator}${date}`
+    return `${monthNames[month]}` + " " + `${date}` + ", " + `${year}`;
 }

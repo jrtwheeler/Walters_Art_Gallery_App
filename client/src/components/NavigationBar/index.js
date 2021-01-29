@@ -27,7 +27,7 @@ function NavigationBar() {
   return (
     <Styles>
       <Navbar expand="lg">
-        <Navbar.Brand href="/">W.A.G.A.</Navbar.Brand>
+        <Navbar.Brand href="/">W.A.G.</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
