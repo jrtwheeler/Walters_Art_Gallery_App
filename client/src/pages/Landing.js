@@ -9,8 +9,9 @@ import Directory from "../components/Directory";
 function Landing() {
   return (
     <div>
-      <Hero backgroundImage="walters.jpg">
+      <Hero backgroundImage="walters-hero-image.jpg">
         <h1>Walters Art Gallery</h1>
+        <h4>Search. View. Collect.</h4>
       </Hero>
       <Container style={{ marginTop: 30 }}>
         <Row>
