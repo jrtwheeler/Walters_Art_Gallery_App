@@ -10,7 +10,8 @@ function Card(props) {
                     <div className="card-body">
                         <h1 className="card-title">{result.Title}</h1>
                         <h2 className="card-text">{result.Collection} </h2>
-                        <h4 className="card-text">{result.Description} </h4>
+                        <h4>{result.DisplayLocation}</h4>
+                        <p className="card-text">{result.Description} </p>
                         <a href="#" className="btn btn-primary">Go somewhere</a>
                     </div>
                 </div>
