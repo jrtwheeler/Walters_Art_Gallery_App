@@ -6,7 +6,8 @@ function SignUp() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
-  const signup = () => {
+  const signup = (event) => {
+    event.preventDefault();
     axios({
       method: "post",
       data: {
@@ -14,7 +15,7 @@ function SignUp() {
         password: registerPassword,
       },
       withCredentials: true,
-      url: "http://localhost:3000/signup",
+      url: "http://localhost:3001/signup",
     }).then((res) => console.log(res));
   };
 
