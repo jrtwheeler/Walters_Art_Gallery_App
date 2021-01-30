@@ -32,12 +32,12 @@ function NavigationBar() {
   return (
     <Styles>
       <Navbar expand="lg">
-        <Navbar.Brand href="/">Tutorial</Navbar.Brand>
+        <Navbar.Brand href="/">Walters Art Gallery App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Item>
-              <Nav.Link href="/signup">SignIn</Nav.Link>
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
             </Nav.Item>
             <Nav.Item>
               <Nav.Link href="/login">LogIn</Nav.Link>

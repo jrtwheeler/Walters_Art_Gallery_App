@@ -1,15 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { Container, Form, Button } from "react-bootstrap";
 
 function Login() {
+  const [loginUsername, setLoginUsername] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const login = () => {
+    axios({
+      method: "post",
+      data: {
+        username: loginUsername,
+        password: loginPassword,
+      },
+      withCredentials: true,
+      url: "http://localhost:3000/login",
+    }).then((res) => console.log(res));
+  };
+
   return (
-    <div>
+    <Container fluid>
       <h1 className="text-center">Login</h1>
-      <p>
-        Lorem ipsum dolor sit amet, est ut enim consequat. Nostrum fastidii partiendo sed ne, no
-        mutat ludus aperiri mea, per in choro dolorem electram. Invidunt reprimique assueverit quo
-        ne, eruditi graecis pro ut. Usu ut diceret scaevola evertitur, appareat voluptatibus ad vel.
-      </p>
-    </div>
+      <Form>
+        <Form.Group controlId="formBasicUsername">
+          <Form.Label>Username:</Form.Label>
+          <Form.Control
+            type="username"
+            placeholder="Enter username"
+            onChange={(e) => setLoginUsername(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter password"
+            onChange={(e) => setLoginPassword(e.target.value)}
+          />
+          <Button type="submit" onClick={login}>
+            Submit
+          </Button>
+        </Form.Group>
+      </Form>
+    </Container>
   );
 }
 
