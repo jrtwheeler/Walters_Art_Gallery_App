@@ -6,7 +6,7 @@ function Card(props) {
         const card = props.results.map(result => {
             return (
                 <div className="card" style={{ width: 30 + 'rem' }}>
-                    <img className="card-img-top" src={result.PrimaryImage.Medium} />
+                    <img className="card-img-top" src={result.PrimaryImage.Medium} alt=""/>
                     <div className="card-body">
                         <h1 className="card-title">{result.Title}</h1>
                         <h2 className="card-text">{result.Collection} </h2>

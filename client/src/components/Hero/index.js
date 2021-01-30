@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {getCurrentDate} from '../../utils/Date'
 
 export function Hero(props) {
