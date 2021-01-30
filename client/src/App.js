@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
 import LogIn from "./pages/LogIn";
+import Collections from "./pages/Collections";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/landing" component={Landing} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/login" component={LogIn} />
+          <Route exact path="/collections" component={Collections} />
           </Switch>
         </Wrapper>
         <Footer />

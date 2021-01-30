@@ -2,9 +2,9 @@ import React from "react";
 
 function SearchForm(props) {
   return (
-    <form>
+    <form className="text-center">
       <div className="form-group">
-        <h6>Type in a keyword below to get search the Gallery for works of art.</h6>
+        <h6>Type in a keyword below to search the Gallery for works of art.</h6>
         <br/>
         {/* <label htmlFor="search">Type in a keyword below to get search the Gallery for works of art. </label> */}
         <input
