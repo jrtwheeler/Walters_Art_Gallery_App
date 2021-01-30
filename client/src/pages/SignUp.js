@@ -1,15 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import { Container, Form, Button } from "react-bootstrap";
 
 function SignUp() {
+  const [registerUsername, setRegisterUsername] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+
+  const signup = () => {
+    axios({
+      method: "post",
+      data: {
+        username: registerUsername,
+        password: registerPassword,
+      },
+      withCredentials: true,
+      url: "http://localhost:3000/signup",
+    }).then((res) => console.log(res));
+  };
+
   return (
-    <div>
-      <h1 className="text-center">SignUp Page</h1>
-      <p>
-        Lorem ipsum dolor sit amet, est ut enim consequat. Nostrum fastidii partiendo sed ne, no
-        mutat ludus aperiri mea, per in choro dolorem electram. Invidunt reprimique assueverit quo
-        ne, eruditi graecis pro ut. Usu ut diceret scaevola evertitur, appareat voluptatibus ad vel.
-      </p>
-    </div>
+    <Container fluid>
+      <h1 className="text-center">Sign Up</h1>
+      <Form>
+        <Form.Group controlId="formBasicUsername">
+          <Form.Label>Username:</Form.Label>
+          <Form.Control
+            type="username"
+            placeholder="Enter username"
+            onChange={(e) => setRegisterUsername(e.target.value)}
+          />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter password"
+            onChange={(e) => setRegisterPassword(e.target.value)}
+          />
+          <Button type="submit" onClick={signup}>
+            Submit
+          </Button>
+        </Form.Group>
+      </Form>
+    </Container>
   );
 }
 
