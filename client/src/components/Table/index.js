@@ -17,7 +17,7 @@ function Table(props) {
           <tr>
             <td>{result.Creator}</td>
             <td>{result.Culture}</td>
-            <td><img src={result.PrimaryImage.Small}></img></td>
+            <td><img alt='small' src={result.PrimaryImage.Small} /></td>
           </tr>
         </tbody>
       ))}

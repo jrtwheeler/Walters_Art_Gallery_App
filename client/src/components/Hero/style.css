@@ -1,10 +1,10 @@
-/* Navbar stle */
+/* Style to the header */
 .header {
-    background-image: url("walters.jpg");
-    padding: 40px;
+    background-image: url("walters-hero-image.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 25px;
+    height: 165px;
     text-align: center;
-}
-
-.Navbar-Text {
     color: white;
 }
