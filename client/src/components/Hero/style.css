@@ -3,6 +3,8 @@
     background-image: url("walters-hero-image.jpg");
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #0F2534;
+    width: 100%;
     padding: 25px;
     height: 165px;
     text-align: center;

@@ -25,12 +25,11 @@ function Landing() {
         </Row>
         <Row>
           <Col size="md-12">
-          <CarouselDiv>
-        <ControlledCarousel />
-        </CarouselDiv>
+            <CarouselDiv>
+              <ControlledCarousel />
+            </CarouselDiv>
           </Col>
         </Row>
-        
         <Directory />
       </Container>
     </div>
