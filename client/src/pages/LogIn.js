@@ -14,7 +14,7 @@ function Login() {
         password: loginPassword,
       },
       withCredentials: true,
-      url: "http://localhost:3000/login",
+      url: "http://localhost:3001/login",
     }).then((res) => console.log(res));
   };
 
