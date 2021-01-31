@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
@@ -8,6 +9,16 @@ import Col from "../components/Col";
 // import CarouselDiv from "../components/CarouselDiv";
 
 function Collections() {
+  const [user, setUser] = useState("");
+
+  const getUser = () => {
+    axios({
+      method: "GET",
+      withCredentials: true,
+      url: "http://localhost:3001/collections",
+    }).then((res) => setUser(res.data));
+  };
+
   return (
     <div>
       <Hero>
@@ -17,12 +28,12 @@ function Collections() {
       <Container style={{ marginTop: 25 }}>
         <Row>
           <Col size="md-12">
-              <h1>My Collections</h1>
+            <h1>My Collections</h1>
           </Col>
         </Row>
         <Row>
-          <Col size="md-12">
-          </Col>
+          {/* Display username of whoever is logged in */}
+          <Col size="md-12">{user ? <h2>{user.username}</h2> : null}</Col>
         </Row>
         {/* <Row>
           <Col size="md-12">

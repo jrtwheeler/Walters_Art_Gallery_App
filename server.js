@@ -1,6 +1,7 @@
 // Establish dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const cors = require("cors");
 const passport = require("passport");
 const passportlocal = require("passport-local").Strategy;
@@ -42,7 +43,7 @@ app.use(
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
-require("./config/passportConfig")(passport);
+require("./config/passport")(passport);
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
@@ -50,7 +51,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Use routes
-require("./routes/index")(app);
+require("./routes/index");
 
 // Send every request to the React app
 app.get("*", function (req, res) {

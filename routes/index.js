@@ -3,26 +3,32 @@ const express = require("express");
 const app = express();
 const bcrypt = require("bcryptjs");
 const db = require("../models");
-const passport = require("../config/passportConfig");
+const passport = require("passport");
+// const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // Authentication routes
 module.exports = function (app) {
-  app.post("/login", (req, res, next) => {
-    passport.authenticate("local", (err, user, info) => {
-      if (err) throw err;
-      if (!user) res.send("No user exists");
-      else {
-        req.logIn(user, (err) => {
-          if (err) throw err;
-          res.send("Successfully authenticated!");
-          console.log(req.user);
-        });
+  // -------------Passport Authentication Routing-------------
+  // Using the passport.authenticate middleware with our local strategy.
+  // If the user has valid login credentials, send them to the "My Collections" page.
+  // Otherwise the user will be sent an error
+  app.post("/login", passport.authenticate("local"), (req, res, next) => {
+    if (err) {
+      return next(err);
+    }
+    if (!user) {
+      return res.redirect("/login");
+    }
+    req.logIn(user, function (err) {
+      if (err) {
+        return next(err);
       }
-    })(req, res, next); // add re-routing to landing page on click
+      return res.redirect("/collections");
+    })(req, res, next);
   });
+
   app.post("/signup", (req, res) => {
-    console.log("test");
     db.User.create({ username: req.body.username }, async (err, doc) => {
       if (err) throw err;
       if (doc) res.send("User already exists");
@@ -37,6 +43,15 @@ module.exports = function (app) {
       }
     });
   });
-  // Need to consider how this plugs in to overall functionality
-  app.get("/user", (req, res) => {});
+
+  // -----------------------App Routing-----------------------
+  app.get("/collections", (req, res) => {
+    // we need to validate user on link click - should we do it here?
+    res.send("Insert favorites here");
+    // db.User.findAll({
+    //   where: {
+    //     username: req.user.username
+    //   }
+    // }).then(function())
+  });
 };
