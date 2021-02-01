@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
