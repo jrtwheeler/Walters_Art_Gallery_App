@@ -1,5 +1,4 @@
 import React from "react";
-import Hero from "../components/Hero";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
@@ -10,21 +9,11 @@ import CarouselDiv from "../components/CarouselDiv";
 function Landing() {
   return (
     <div>
-      <Hero>
-        <h1>Walters Art Gallery</h1>
-        <h4>Search. View. Collect.</h4>
-      </Hero>
-      <Container style={{ marginTop: 25 }}>
+      <Container style={{ marginTop: 25 }}>  
         <Row>
-          <Col size="md-12">
+          <Col size="md-6">
           </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
+          <Col size="md-6">
             <CarouselDiv>
               <ControlledCarousel />
             </CarouselDiv>

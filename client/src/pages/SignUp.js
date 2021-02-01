@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import Container from "../components/Container";
 
 function SignUp() {
   const [registerUsername, setRegisterUsername] = useState("");
@@ -20,30 +21,34 @@ function SignUp() {
   };
 
   return (
-    <Container fluid>
-      <h1 className="text-center">Sign Up</h1>
-      <Form>
-        <Form.Group controlId="formBasicUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="username"
-            placeholder="Enter username"
-            onChange={(e) => setRegisterUsername(e.target.value)}
-          />
-        </Form.Group>
+    <Container fluid style={{ marginTop: 25, color: "#0F2534" }}>
+      <h3 className="text-center mb-4">Sign Up</h3>
+      <hr />
+      <p className="text-center mb-4">Create an account to start saving your own collections!</p>
+      <div className="w-50 container-fluid justify-content-center">
+        <Form className="text-center">
+          <Form.Group controlId="formBasicUsername">
+            <Form.Control
+              className="text-center"
+              type="username"
+              placeholder="Enter a username"
+              onChange={(e) => setRegisterUsername(e.target.value)}
+            />
+          </Form.Group>
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter password"
-            onChange={(e) => setRegisterPassword(e.target.value)}
-          />
-          <Button type="submit" onClick={signup}>
-            Submit
+          <Form.Group controlId="formBasicPassword">
+            <Form.Control
+              className="text-center"
+              type="password"
+              placeholder="Enter a password"
+              onChange={(e) => setRegisterPassword(e.target.value)}
+            />
+            <Button className="mt-3" style={{ backgroundColor: "#0F2534" }} type="submit" onClick={signup}>
+              Submit
           </Button>
-        </Form.Group>
-      </Form>
+          </Form.Group>
+        </Form>
+      </div>
     </Container>
   );
 }

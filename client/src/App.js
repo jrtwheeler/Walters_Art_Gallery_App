@@ -7,12 +7,17 @@ import Collections from "./pages/Collections";
 import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
+import Hero from "./components/Hero";
 
 function App() {
   return (
     <Router>
       <div>
         <NavigationBar />
+        <Hero>
+        <h1>Walters Art Gallery</h1>
+        <h4>Search. View. Collect.</h4>
+      </Hero>
         <Wrapper>
           <Switch>
           <Route exact path="/" component={Landing} />
