@@ -42,11 +42,19 @@ class Directory extends Component {
     return (
       <Container>
         <Row>
-          <SearchForm
-            search={this.state.search}
-            handleInputChange={this.handleInputChange}
-            handleFormSubmit={this.handleFormSubmit}
-          />
+          <Col size="md-4">
+          </Col>
+          <Col size="md-4">
+            <hr />
+            <SearchForm
+              search={this.state.search}
+              handleInputChange={this.handleInputChange}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+            <hr />
+          </Col>
+        </Row>
+        <Row>
           <Col size="md-12">
             <Card results={this.state.filtered} />
           </Col>

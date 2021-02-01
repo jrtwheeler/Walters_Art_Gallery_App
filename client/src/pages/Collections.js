@@ -21,14 +21,10 @@ function Collections() {
 
   return (
     <div>
-      <Hero>
-        <h1>Walters Art Gallery</h1>
-        <h4>Search. View. Collect.</h4>
-      </Hero>
       <Container style={{ marginTop: 25 }}>
         <Row>
           <Col size="md-12">
-            <h1>My Collections</h1>
+            <h3>My Collections</h3>
           </Col>
         </Row>
         <Row>

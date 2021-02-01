@@ -9,17 +9,11 @@ import CarouselDiv from "../components/CarouselDiv";
 function Landing() {
   return (
     <div>
-      <Container style={{ marginTop: 25 }}>
+      <Container style={{ marginTop: 25 }}>  
         <Row>
-          <Col size="md-12">
+          <Col size="md-6">
           </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
-          </Col>
-        </Row>
-        <Row>
-          <Col size="md-12">
+          <Col size="md-6">
             <CarouselDiv>
               <ControlledCarousel />
             </CarouselDiv>
