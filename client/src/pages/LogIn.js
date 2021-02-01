@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Container, Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
+import Container from "../components/Container";
 
 function Login() {
   const [loginUsername, setLoginUsername] = useState("");
@@ -8,7 +9,7 @@ function Login() {
 
   const login = () => {
     axios({
-      method: "post",
+      method: "get",
       data: {
         username: loginUsername,
         password: loginPassword,
@@ -19,30 +20,34 @@ function Login() {
   };
 
   return (
-    <Container fluid>
-      <h1 className="text-center">Login</h1>
-      <Form>
-        <Form.Group controlId="formBasicUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="username"
-            placeholder="Enter username"
-            onChange={(e) => setLoginUsername(e.target.value)}
-          />
-        </Form.Group>
+    <Container style={{ marginTop: 25, color: "#0F2534" }}>
+      <h3 className="text-center mb-4">Login</h3>
+      <hr />
 
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter password"
-            onChange={(e) => setLoginPassword(e.target.value)}
-          />
-          <Button type="submit" onClick={login}>
-            Submit
+      <div className="w-50 container-fluid justify-content-center">
+        <Form className="text-center">
+          <Form.Group controlId="formBasicUsername">
+            <Form.Control
+              className="text-center"
+              type="username"
+              placeholder="Enter your username"
+              onChange={(e) => setLoginUsername(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Control
+              className="text-center"
+              type="password"
+              placeholder="Enter your password"
+              onChange={(e) => setLoginPassword(e.target.value)}
+            />
+            <Button className="mt-3" style={{ backgroundColor: "#0F2534" }} type="submit" onClick={login}>
+              Submit
           </Button>
-        </Form.Group>
-      </Form>
+          </Form.Group>
+        </Form>
+      </div>
     </Container>
   );
 }
