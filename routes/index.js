@@ -17,7 +17,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/collections",
-    failureRedirect: "/landing",
+    failureRedirect: "/login",
     failureFlash: "Invalid username or password.",
   }),
   (req, res) => {
