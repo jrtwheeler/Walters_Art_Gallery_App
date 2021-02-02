@@ -25,7 +25,7 @@ function Login() {
       <hr />
 
       <div className="w-50 container-fluid justify-content-center">
-        <Form className="text-center">
+        <Form action="/login" method="post" className="text-center">
           <Form.Group controlId="formBasicUsername">
             <Form.Control
               className="text-center"
@@ -42,9 +42,15 @@ function Login() {
               placeholder="Enter your password"
               onChange={(e) => setLoginPassword(e.target.value)}
             />
-            <Button className="mt-3" style={{ backgroundColor: "#0F2534" }} type="submit" onClick={login}>
+            <Button
+              value="Log In"
+              className="mt-3"
+              style={{ backgroundColor: "#0F2534" }}
+              type="submit"
+              onClick={login}
+            >
               Submit
-          </Button>
+            </Button>
           </Form.Group>
         </Form>
       </div>

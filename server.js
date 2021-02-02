@@ -1,14 +1,16 @@
 // Establish dependencies
 const express = require("express");
+const flash = require("connect-flash");
 
 const app = express();
+app.use(flash());
 const PORT = process.env.PORT || 3001;
 
 // Connect to the Mongo DB
 const mongoose = require("mongoose");
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb+srv://pindellk:BhePPs4ozZFMMm6f@cluster0.bwwyi.mongodb.net/artapp?retryWrites=true&w=majority",
+    "mongodb+srv://pindellk:BhePPs4ozZFMMm6f@cluster0.bwwyi.mongodb.net/artapp?retryWrites=true&w=majority",
   {
     useUnifiedTopology: true,
     useNewUrlParser: true,
@@ -18,8 +20,8 @@ mongoose.connect(
 
 // Define middleware
 const bodyParser = require("body-parser");
-app.use(bodyParser.json()); // replaced express with bodyParser
-app.use(bodyParser.urlencoded({ extended: true })); // replaced express with bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const cors = require("cors");
 app.use(
@@ -50,7 +52,6 @@ app.use(require("./routes"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now listening on port ${PORT}!`);
