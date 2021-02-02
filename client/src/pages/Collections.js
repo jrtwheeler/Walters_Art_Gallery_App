@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-// import Card from "../components/Card";
+// import Card from "../components/Card"; - will need to display favorites
 // import API from "../utils/API"; - will need for get user API
 
+// PSUEDOCODE for a different approach to getting/rendering user info
 // class Collections extends Component {
 //   state = {
 //     username: "",
