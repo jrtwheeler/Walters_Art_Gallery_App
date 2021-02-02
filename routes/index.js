@@ -17,7 +17,7 @@ router.post(
   "/login",
   passport.authenticate("local", {
     successRedirect: "/collections",
-    failureRedirect: "/landing",
+    failureRedirect: "/login",
     failureFlash: "Invalid username or password.",
   }),
   (req, res) => {
@@ -37,7 +37,7 @@ router.post("/signup", async (req, res) => {
 
 router.get("/logout", (req, res) => {
   req.logOut();
-
+  res.redirect("/landing");
   res.json(req.user);
 });
 
