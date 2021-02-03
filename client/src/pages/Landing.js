@@ -5,7 +5,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import ControlledCarousel from "../components/Carousel";
 import Directory from "../components/Directory";
-// import CarouselDiv from "../components/CarouselDiv";
+
 
 function Landing() {
   return (
@@ -19,9 +19,7 @@ function Landing() {
           
           </Col>
           <Col size="lg-6">
-            {/* <CarouselDiv> */}
               <ControlledCarousel />
-            {/* </CarouselDiv> */}
           </Col>
         </Row>
         <Directory />
