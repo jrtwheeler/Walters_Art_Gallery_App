@@ -14,10 +14,10 @@ function Card(props) {
             alt=""
           />
           <div className="card-body">
-            <h1 className="card-title">{result.Title}</h1>
+            <h4 className="card-title">{result.Title}</h4>
             {/* note that "Collection" is "collectionArt" in the db schema */}
-            <h2 className="card-text">{result.Collection} </h2>
-            <h4>{result.DisplayLocation}</h4>
+            <h5 className="card-text">{result.Collection} </h5>
+            <h6>{result.DisplayLocation}</h6>
             <p className="card-text">{result.Description} </p>
             <button href="#" className="btn btn-light">
               {/* Add modal popout for larger view */}
