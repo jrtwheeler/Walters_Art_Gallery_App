@@ -4,27 +4,22 @@ import styled from "styled-components";
 
 const Styles = styled.div`
   .navbar {
-    background-color: #222;
+    background-color: #0F2534;
   }
   a,
   .navbar-nav,
   .navbar-light .nav-link {
-    color: #9fffcb;
+    color: white;
     &:hover {
-      color: white;
+      color: #BEC9D1;
     }
   }
   .navbar-brand {
     font-size: 1.4em;
-    color: #9fffcb;
+    color: white;
     &:hover {
-      color: white;
+      color: #BEC9D1;
     }
-  }
-  .form-center {
-    position: absolute !important;
-    left: 25%;
-    right: 25%;
   }
 `;
 
@@ -32,15 +27,18 @@ function NavigationBar() {
   return (
     <Styles>
       <Navbar expand="lg">
-        <Navbar.Brand href="/">Tutorial</Navbar.Brand>
+        <Navbar.Brand href="/">W.A.G.</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Item>
-              <Nav.Link href="/signup">SignIn</Nav.Link>
+          <Nav.Item>
+              <Nav.Link href="/collections">My Collections</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/login">LogIn</Nav.Link>
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/login">Login</Nav.Link>
             </Nav.Item>
           </Nav>
         </Navbar.Collapse>

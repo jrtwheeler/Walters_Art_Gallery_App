@@ -1,33 +1,53 @@
 // Establish dependencies
 const express = require("express");
-const mongoose = require("mongoose");
-const routes = require("./routes");
+const flash = require("connect-flash");
+require("dotenv").config();
+
 const app = express();
+app.use(flash());
 const PORT = process.env.PORT || 3001;
 
+// Connect to the Mongo DB
+const mongoose = require("mongoose");
+mongoose.connect(process.env.MONGODB_URI, {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+});
+
 // Define middleware
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Serve up static assets
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/collections", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true,
-});
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "http://localhost:3000", // location of react app we're connecting to
+    credentials: true,
+  })
+);
 
-// Use apiRoutes
-app.use(routes);
+const session = require("express-session");
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+const cookieParser = require("cookie-parser");
+app.use(cookieParser("secretcode"));
 
-// Send every request to the React app - may not need
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+const passport = require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(require("./routes"));
 
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now listening on port ${PORT}!`);
