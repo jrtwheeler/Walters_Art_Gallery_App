@@ -27,7 +27,7 @@ const local = new localStrategy((username, password, done) => {
       }
     });
   });
-})
+});
 
 passport.use("local", local);
 
@@ -35,9 +35,8 @@ passport.serializeUser((user, cb) => {
   cb(null, user);
 });
 
-// Only send back username in object
 passport.deserializeUser((obj, cb) => {
   cb(null, obj);
 });
 
-module.exports = passport
+module.exports = passport;

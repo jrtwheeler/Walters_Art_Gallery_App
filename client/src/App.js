@@ -15,16 +15,17 @@ function App() {
       <div>
         <NavigationBar />
         <Hero>
-        <h1>Walters Art Gallery</h1>
-        <h4>Search. View. Collect.</h4>
-      </Hero>
+          <h1>Walters Art Gallery</h1>
+          <h4>Search. View. Collect.</h4>
+        </Hero>
         <Wrapper>
           <Switch>
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/landing" component={Landing} />
-          <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/login" component={LogIn} />
-          <Route exact path="/collections" component={Collections} />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/landing" component={Landing} />
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/login" component={LogIn} />
+            <Route exact path="/collections" component={Collections} />
+            {/* <Route component={}/>  catchall route for 404*/}
           </Switch>
         </Wrapper>
         <Footer />
