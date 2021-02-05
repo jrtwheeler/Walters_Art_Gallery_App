@@ -6,6 +6,14 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const path = require("path");
+const userController = require('../controllers/userController')
+
+router.route("/")
+  .get(userController.findAll)
+  .post(userController.create)
+
+router.put("/:id", userController.addCard)
+router.get("/range", userController.findAll)
 
 // -------------Passport Authentication Routing-------------
 // Using the passport.authenticate middleware with our local strategy.
@@ -50,16 +58,16 @@ router.get("/api/art/:query", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
-router.get("/api/collections", (req, res) => {
-  // We need to validate user on link click - should we do it here?
-  db.User.findOne({
-    where: {
-      username: req.user.username,
-    },
-  }).then((data) => {
-    res.json(data);
-  });
-});
+// router.get("/api/collections", (req, res) => {
+//   // We need to validate user on link click - should we do it here?
+//   db.User.findOne({
+//     where: {
+//       username: req.user.username,
+//     },
+//   }).then((data) => {
+//     res.json(data);
+//   });
+// });
 
 // General routing to home page
 router.use((req, res) => {
