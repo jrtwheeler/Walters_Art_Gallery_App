@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 // Create user schema
-const artapp = new mongoose.Schema({
+const user = new mongoose.Schema({
   username: String,
   password: String,
   favorites: [
@@ -16,6 +16,6 @@ const artapp = new mongoose.Schema({
 });
 
 
-const Artapp = mongoose.model("Artapp", artapp);
+const User = mongoose.model("User", user);
 
-module.exports = Artapp;
+module.exports = User;

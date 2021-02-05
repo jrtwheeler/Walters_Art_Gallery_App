@@ -1,3 +1,3 @@
 module.exports = {
-  Artapp: require("./user"),
+  User: require("./user"),
 };

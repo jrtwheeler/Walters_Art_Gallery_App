@@ -10,7 +10,7 @@ mongoose.connect("mongodb://localhost/artapp", {
 
 // This file empties the Collection collection and inserts the collection objects below
 
-let collectionSeed = [
+let userSeed = [
   // Add collection objects here based on desired data from Walters' API object structure
   {username: "jim",
     password: "password",
@@ -34,10 +34,10 @@ let collectionSeed = [
     ]}
 ];
 
-db.Artapp.deleteMany({})
+db.User.deleteMany({})
   .then(async () => {
     try {
-      const inserted = collectionSeed.map(w => db.Artapp.create(w));
+      const inserted = userSeed.map(w => db.User.create(w));
       await Promise.all(inserted);
       mongoose.disconnect();
     } catch (error) {
