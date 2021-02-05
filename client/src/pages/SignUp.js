@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 import Container from "../components/Container";
 
 function SignUp() {
+  const history = useHistory();
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
 
@@ -17,7 +19,11 @@ function SignUp() {
       },
       withCredentials: true,
       url: "http://localhost:3001/signup",
-    }).then((res) => console.log(res));
+    }).then(() => {
+      // add conditionals for routing
+      history.push("/collections");
+      // results.request.responseURL;
+    });
   };
 
   return (
