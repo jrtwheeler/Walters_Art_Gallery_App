@@ -9,11 +9,13 @@ const user = new mongoose.Schema({
     {
       primaryImage: String,
       title: String,
-      collectionArt: String, // change this @ source
       displayLocation: String,
       description: String,
     },
   ],
 });
 
-module.exports = mongoose.model("User", user);
+
+const User = mongoose.model("User", user);
+
+module.exports = User;
