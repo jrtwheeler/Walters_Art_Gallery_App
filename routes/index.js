@@ -10,14 +10,6 @@ const apiRoutes = require("./api");
 
 // API Routes
 router.use("/api", apiRoutes);
-// const userController = require('../controllers/userController')
-
-// router.route("/")
-//   .get(userController.findAll)
-//   .post(userController.create)
-
-// router.put("/:id", userController.addCard)
-// router.get("/range", userController.findAll)
 
 // -------------Passport Authentication Routing-------------
 // Using the passport.authenticate middleware with our local strategy.
@@ -70,27 +62,6 @@ router.get("/api/art/:exhibitions", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
-// router.get("/api/collections", (req, res) => {
-//   // We need to validate user on link click - should we do it here?
-//   db.User.findOne({
-//     where: {
-//       username: req.user.username,
-//     },
-//   }).then((data) => {
-//     res.json(data);
-//   });
-// });
-
-// router.get("/artapp", (req, res) => {
-//   db.User.find({})
-//     .then(dbUser => {
-//       console.log(dbUser)
-//       res.json(dbUser);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
 
 // General routing to home page
 router.use((req, res) => {
