@@ -6,14 +6,18 @@ const db = require("../models");
 const passport = require("../config/passport");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
 const path = require("path");
-const userController = require('../controllers/userController')
+const apiRoutes = require("./api");
 
-router.route("/")
-  .get(userController.findAll)
-  .post(userController.create)
+// API Routes
+router.use("/api", apiRoutes);
+// const userController = require('../controllers/userController')
 
-router.put("/:id", userController.addCard)
-router.get("/range", userController.findAll)
+// router.route("/")
+//   .get(userController.findAll)
+//   .post(userController.create)
+
+// router.put("/:id", userController.addCard)
+// router.get("/range", userController.findAll)
 
 // -------------Passport Authentication Routing-------------
 // Using the passport.authenticate middleware with our local strategy.
@@ -67,6 +71,17 @@ router.get("/api/art/:query", (req, res) => {
 //   }).then((data) => {
 //     res.json(data);
 //   });
+// });
+
+// router.get("/artapp", (req, res) => {
+//   db.User.find({})
+//     .then(dbUser => {
+//       console.log(dbUser)
+//       res.json(dbUser);
+//     })
+//     .catch(err => {
+//       res.json(err);
+//     });
 // });
 
 // General routing to home page
