@@ -62,6 +62,14 @@ router.get("/api/art/:query", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
+router.get("/api/art/:exhibitions", (req, res) => {
+  const BASEURL = "http://api.thewalters.org/v1/exhibitions.json?title=";
+  const KEY = "&apikey=" + process.env.WALTERSAPIKEY;
+  axios
+    .get(BASEURL + req.params.exhibitions + KEY)
+    .then((results) => res.json(results.data));
+});
+
 // router.get("/api/collections", (req, res) => {
 //   // We need to validate user on link click - should we do it here?
 //   db.User.findOne({
