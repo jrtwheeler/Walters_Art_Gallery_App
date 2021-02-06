@@ -7,15 +7,17 @@ const API = {
   },
   // Get user id from Mongo database
   getUser: function () {
-    return axios.get("/api/collections");
+    let val = axios.get("/api/users");
+    console.log(val)
+    return val
   },
   // Post user favorite to their collection
   saveFavorites: function (favoriteData) {
-    return axios.post("/api/collections", favoriteData);
+    return axios.post("/api/users", favoriteData);
   },
   // Get user favorites and display in their collection - id is for unique user
   getFavorites: function (id) {
-    return axios.get("/api/collections" + id);
+    return axios.get("/api/users" + id);
   },
 };
 

@@ -16,16 +16,16 @@ module.exports = {
         } catch (error) {
             res.sendStatus(500)
         }
-    },
-    addCard: async ({ body, params }, res) => {
-        try {
-            const dbUser = await User.findByIdAndUpdate(params.id, {
-                $push: { exercises: body }
-            })
-            res.json(dbUser)
-        } catch (error) {
-            console.log(error)
-            res.sendStatus(500)
-        }
+    // },
+    // addCard: async ({ body, params }, res) => {
+    //     try {
+    //         const dbUser = await User.findByIdAndUpdate(params.id, {
+    //             $push: { exercises: body }
+    //         })
+    //         res.json(dbUser)
+    //     } catch (error) {
+    //         console.log(error)
+    //         res.sendStatus(500)
+    //     }
     }
 }

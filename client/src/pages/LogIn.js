@@ -21,9 +21,13 @@ function Login() {
       withCredentials: true,
       url: "/login",
     }).then((results) => {
-      // add conditionals for routing
+      console.log(results)
+      // if (results.status === 200) {
       history.push("/collections");
-      // results.request.responseURL;
+      // }
+      // else {
+      //   alert("Wrong password")
+      // }
     });
   };
 

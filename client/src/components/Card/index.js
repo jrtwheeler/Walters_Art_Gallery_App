@@ -7,6 +7,10 @@ function Card(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const addtoCollection = () => {
+    console.log("Button")
+  }
+
   if (props.results) {
     const card = props.results.map((result) => {
       return (
@@ -45,7 +49,7 @@ function Card(props) {
               </Modal.Body>
             </Modal>
 
-            <button href="#" className="btn btn-light">
+            <button href="#" className="btn btn-light" onClick={addtoCollection}>
               {/* Add user validation and db action for favorite */}
               Add to collection
             </button>
