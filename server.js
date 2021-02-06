@@ -7,15 +7,17 @@ const app = express();
 app.use(flash());
 const PORT = process.env.PORT || 3001;
 
-// Connect to the Mongo DB
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI, {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-  useCreateIndex: true,
-});
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  })
+  .then(() => console.log("Connected to Mongo database"))
+  .catch((e) => console.error(e));
 
-// Define middleware
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -36,16 +38,18 @@ const session = require("express-session");
 app.use(
   session({
     secret: "secretcode",
-    resave: true,
-    saveUninitialized: true,
+    resave: false, // might need to change to true
+    saveUninitialized: false, // might need to change to true
   })
 );
+
 const cookieParser = require("cookie-parser");
 app.use(cookieParser("secretcode"));
 
-const passport = require("./config/passport");
-app.use(passport.initialize());
-app.use(passport.session());
+// Passport
+const passport = require("./services/passport");
+app.use(passport.initialize()); // initialize passport
+app.use(passport.session()); // tell passport to use session for the authentication process
 
 app.use(require("./routes"));
 

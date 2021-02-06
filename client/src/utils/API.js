@@ -8,8 +8,8 @@ const API = {
   // Get user id from Mongo database
   getUser: function () {
     let val = axios.get("/api/users");
-    console.log(val)
-    return val
+    // console.log(val);
+    return val;
   },
   // Post user favorite to their collection
   saveFavorites: function (favoriteData) {
