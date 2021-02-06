@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import Card from "../components/Card";
+import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 // import Card from "../components/Card"; - will need to display favorites
 // import API from "../utils/API"; - will need for get user API
@@ -9,50 +11,35 @@ import API from "../utils/API";
 // PSUEDOCODE for a different approach to getting/rendering user info
 class Collections extends Component {
   state = {
-    username: "",
-    favorites: [],
+    search: "",
+    error: "",
+    results: [],
   };
 
   componentDidMount() {
-    this.getUserArt();
+    this.getExhibtions("Archimedes");
   }
 
-  getUserArt = () => {
-    API.getUser()
-    .then((res) => this.setState({ username: res.data[0].username, favorites: res.data[0].favorites }))
+  getExhibtions = () => {
+    API.getExhibitions()
+    .then((res) => this.setState({ results: res.data.Items }))
     .catch((err) => console.log(err)); 
   }
 
-//   // get user who's logged in and display their collection
-//   render() {
-//     return (
-//       <div>
-//         <Container style={{ marginTop: 25 }}>
-//           <Row>
-//             <Col size="md-12">
-//               <h3>My Collections</h3>
-//             </Col>
-//           </Row>
-//           <Row>
-//             {/* Display username of whoever is logged in */}
-//             <Col size="md-12">
-//               <h1>Welcome</h1>
-//             </Col>
-//           </Row>
-//           <Row>
-//             <Col size="md-12">
-//               <Card />
-//             </Col>
-//           </Row>
-//         </Container>
-//       </div>
-//     );
-//   }
-// }
+  handleInputChange = (event) => {
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value,
+      filtered: this.state.results.filter(result => result.DisplayLocation !== "Not On View")
+    });
+  };
 
-// export default Collections;
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    this.getExhibtions(this.state.search);
+  };
 
-// function Collections() {
   render () {
     console.log(this.state)
     return (
@@ -70,7 +57,20 @@ class Collections extends Component {
           </Col>
         </Row>
         <Row>
-          <Col size="md-12"></Col>
+        <Col size="md-4">
+            <hr />
+            <SearchForm
+              search={this.state.search}
+              handleInputChange={this.handleInputChange}
+              handleFormSubmit={this.handleFormSubmit}
+            />
+            <hr />
+          </Col>
+        </Row>
+        <Row>
+          <Col size="md-12">
+            <Card results={this.state.results} />
+          </Col>
         </Row>
       </Container>
     </div>

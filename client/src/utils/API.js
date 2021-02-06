@@ -5,6 +5,10 @@ const API = {
   getResults: function (query) {
     return axios.get("/api/art/" + query);
   },
+  // Get search results from API
+  getExhibitions: function (exhibitions) {
+    return axios.get("/api/art/" + exhibitions);
+  },
   // Get user id from Mongo database
   getUser: function () {
     let val = axios.get("/api/users");
