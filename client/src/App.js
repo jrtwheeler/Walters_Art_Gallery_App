@@ -25,6 +25,7 @@ function App() {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/collections" component={Collections} />
+            <Route exact path="/logout" />
             {/* <Route component={}/>  catchall route for 404*/}
           </Switch>
         </Wrapper>
