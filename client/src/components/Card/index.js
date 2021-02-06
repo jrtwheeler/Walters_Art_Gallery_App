@@ -8,13 +8,14 @@ function Card(props) {
   const handleShow = () => setShow(true);
 
   const addtoCollection = () => {
-    console.log("Button")
-  }
+    console.log("Button");
+  };
 
   if (props.results) {
-    const card = props.results.map((result) => {
+    const card = props.results.map((result, i) => {
       return (
         <div
+          key={`result-${i}`}
           className="card container-fluid mb-3 pt-3"
           style={{ width: 25 + "rem" }}
         >
@@ -31,7 +32,11 @@ function Card(props) {
             <h5 className="card-text">{result.Collection} </h5>
             <h6>{result.DisplayLocation}</h6>
             <p className="card-text">{result.Description} </p>
-            <button variant="primary" onClick={handleShow} className="btn btn-light">
+            <button
+              variant="primary"
+              onClick={handleShow}
+              className="btn btn-light"
+            >
               {/* Add modal popout for larger view */}
               See more
             </button>
@@ -49,7 +54,11 @@ function Card(props) {
               </Modal.Body>
             </Modal>
 
-            <button href="#" className="btn btn-light" onClick={addtoCollection}>
+            <button
+              href="#"
+              className="btn btn-light"
+              onClick={addtoCollection}
+            >
               {/* Add user validation and db action for favorite */}
               Add to collection
             </button>

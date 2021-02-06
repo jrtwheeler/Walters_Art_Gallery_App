@@ -62,7 +62,6 @@ router.get("/api/art/:exhibitions", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
-
 // General routing to home page
 router.use((req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));

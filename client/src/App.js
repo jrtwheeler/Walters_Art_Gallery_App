@@ -8,8 +8,11 @@ import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Hero from "./components/Hero";
+import API from "./utils/API";
 
 function App() {
+  API.getUser();
+
   return (
     <Router>
       <div>
