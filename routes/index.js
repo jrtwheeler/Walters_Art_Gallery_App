@@ -46,6 +46,7 @@ router.get("/logout", (req, res) => {
 });
 
 // -----------------------App Routing-----------------------
+// Get route for search results
 router.get("/api/art/:query", (req, res) => {
   const BASEURL = "http://api.thewalters.org/v1/objects.json?keyword=";
   const KEY = "&apikey=" + process.env.WALTERSAPIKEY;
@@ -54,6 +55,7 @@ router.get("/api/art/:query", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
+// Get route for exhibition 
 router.get("/api/art/:exhibitions", (req, res) => {
   const BASEURL = "http://api.thewalters.org/v1/exhibitions.json?title=";
   const KEY = "&apikey=" + process.env.WALTERSAPIKEY;
