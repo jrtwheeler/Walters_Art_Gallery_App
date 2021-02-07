@@ -15,6 +15,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "express-validator": "^6.9.2",
     "if-env": "^1.0.4",
     "mongoose": "^5.11.14",
     "passport": "^0.4.1",

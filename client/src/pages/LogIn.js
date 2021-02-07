@@ -21,7 +21,8 @@ function Login() {
       withCredentials: true,
       url: "/login",
     }).then((results) => {
-      console.log(results)
+      // TODO: figure out history.push login success issue
+      // console.log(results);
       // if (results.status === 200) {
       history.push("/collections");
       // }

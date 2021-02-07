@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const artRoutes = require("./artcollection");
 
-// Book routes
+const authRoutes = require("./auth");
+router.use("/auth", authRoutes);
+
+const artRoutes = require("./artcollection");
 router.use("/users", artRoutes);
 
 module.exports = router;

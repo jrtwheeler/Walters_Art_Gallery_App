@@ -1,16 +1,17 @@
 // Establish dependency
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+
 // Create user schema
 const user = new Schema({
   username: {
     type: String,
     trim: true,
-    required: "String is Required"
+    required: "String is Required",
   },
   password: {
     type: String,
-    validate: [({ length }) => length >= 6, "Longstring should be longer."]
+    validate: [({ length }) => length >= 6, "Longstring should be longer."],
   },
   favorites: [
     {
@@ -21,7 +22,6 @@ const user = new Schema({
     },
   ],
 });
-
 
 const User = mongoose.model("User", user);
 
