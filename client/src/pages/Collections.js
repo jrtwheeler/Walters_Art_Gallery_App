@@ -17,11 +17,11 @@ class Collections extends Component {
   };
 
   componentDidMount() {
-    this.getExhibtions("Archimedes");
+    this.getExhibitionsfromAPI("Archimedes");
   }
 
-  getExhibtions = () => {
-    API.getExhibitions()
+  getExhibitionsfromAPI = (exhibitions) => {
+    API.getExhibitions(exhibitions)
     .then((res) => this.setState({ results: res.data.Items }))
     .catch((err) => console.log(err)); 
   }
@@ -30,18 +30,17 @@ class Collections extends Component {
     const value = event.target.value;
     const name = event.target.name;
     this.setState({
-      [name]: value,
-      filtered: this.state.results.filter(result => result.DisplayLocation !== "Not On View")
+      [name]: value
     });
   };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    this.getExhibtions(this.state.search);
+    this.getExhibitionsfromAPI(this.state.search);
   };
 
   render () {
-    console.log(this.state)
+    console.log(this.state.results)
     return (
     <div>
       <Container style={{ marginTop: 25 }}>
