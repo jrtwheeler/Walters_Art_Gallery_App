@@ -1,17 +1,12 @@
-import React, { useState } from "react";
-import Modal from "react-bootstrap/Modal";
+import React from "react";
 
 function Card(props) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const addtoCollection = () => {
     console.log("Button");
   };
 
   if (props.results) {
+    // console.log(props.results[0].ResourceURL);
     const card = props.results.map((result, i) => {
       return (
         <div
@@ -19,41 +14,31 @@ function Card(props) {
           className="card container-fluid mb-3 pt-3"
           style={{ width: 25 + "rem" }}
         >
-          <img
-            className="card-img-top"
-            src={result.PrimaryImage.Medium}
-            alt={result.Title}
-            variant="primary"
-            onClick={handleShow}
-          />
+          {/* This is an image/link to go to art.thewalters.org/detail/whateverimagenumber */}
+          <a href={result.ResourceURL}
+            target="_blank"
+            rel="noreferrer">
+            <img
+              className="card-img-top"
+              src={result.PrimaryImage.Medium}
+              alt={result.Title}
+              variant="primary"
+            />
+          </a>
           <div className="card-body">
             <h4 className="card-title">{result.Title}</h4>
             {/* note that "Collection" is "collectionArt" in the db schema */}
             <h5 className="card-text">{result.Collection} </h5>
             <h6>{result.DisplayLocation}</h6>
             <p className="card-text">{result.Description} </p>
-            <button
-              variant="primary"
-              onClick={handleShow}
+            {/* This is a button/link to go to art.thewalters.org/detail/whateverimagenumber */}
+            <a href={result.ResourceURL}
+              target="_blank"
+              role="button"
               className="btn btn-light"
-            >
-              {/* Add modal popout for larger view */}
+              rel="noreferrer">
               See more
-            </button>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>{result.Title}</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <img
-                  className="card-img-top"
-                  src={result.PrimaryImage.Large}
-                  alt={result.Title}
-                />
-                It's a Modal! Yay!
-              </Modal.Body>
-            </Modal>
-
+            </a>
             <button
               href="#"
               className="btn btn-light"

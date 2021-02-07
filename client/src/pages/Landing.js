@@ -16,7 +16,6 @@ function Landing() {
             <div className="d-flex justify-content-center">
             <img src={plan} alt="Plan your visit" size="400px"/>
             </div>
-          
           </Col>
           <Col size="lg-6">
               <ControlledCarousel />
