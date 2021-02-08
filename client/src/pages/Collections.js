@@ -5,10 +5,6 @@ import Col from "../components/Col";
 import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
-// import Card from "../components/Card"; - will need to display favorites
-// import API from "../utils/API"; - will need for get user API
-
-// PSUEDOCODE for a different approach to getting/rendering user info
 class Collections extends Component {
   state = {
     search: "",
@@ -17,7 +13,7 @@ class Collections extends Component {
   };
 
   componentDidMount() {
-    this.getExhibitionsfromAPI("Archimedes");
+    this.getExhibitionsfromAPI("Egypt");
   }
 
   getExhibitionsfromAPI = (exhibitions) => {

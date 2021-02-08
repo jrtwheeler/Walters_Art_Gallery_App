@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import SignUp from "./pages/SignUp";
@@ -8,14 +8,8 @@ import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
 import Hero from "./components/Hero";
-import API from "./utils/API";
 
 function App() {
-  const [user, setUser] = useState({});
-  API.getUser().then((response) => setUser(response.data.user));
-  console.log(user);
-  // could pass username to navbar OR pass prop saying whether there's a user/ "logged in" flag
-  // in navbar vonditionally render links based on whether someone is logged in/logged out
 
   return (
     <Router>
