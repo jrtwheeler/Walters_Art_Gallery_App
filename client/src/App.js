@@ -29,7 +29,9 @@ function App() {
           <Switch>
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/login" component={LogIn} />
-            <Route exact path="/collections" component={Collections} />
+            <Route path="/collections">
+              <Collections user={user} />
+            </Route>
             <Route path="/">
               <Landing user={user} />
             </Route>

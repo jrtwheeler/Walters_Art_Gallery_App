@@ -10,7 +10,6 @@ function Card(props) {
 
   const { user } = props;
   console.log("card", props);
-  // Grab artObject data and send OR push to user object favorites array
   const addToFavorites = (favorite) => {
     return (e) => API.updateUser(user._id, { favorites: [favorite] });
   };

@@ -14,6 +14,7 @@ class Directory extends Component {
     filtered: [],
   };
 
+  // Default search results
   componentDidMount() {
     this.searchArchive("cups");
   }
