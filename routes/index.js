@@ -12,13 +12,11 @@ const apiRoutes = require("./api");
 router.use("/api", apiRoutes);
 
 // -------------Passport Authentication Routing-------------
-// Using the passport.authenticate middleware with our local strategy.
-// If the user has valid login credentials, send them to the "My Collections" page.
-// Otherwise the user will be sent an error
 router.get("/users", isAuthenticated, (req, res) => {
   db.User.find({}).then((result) => res.json(result));
 });
 
+// Post route for login
 router.post(
   "/login",
   passport.authenticate("local", {
@@ -28,6 +26,7 @@ router.post(
   })
 );
 
+// Post route for signup
 router.post("/signup", async (req, res) => {
   let user = await db.User.findOne({ username: req.body.username });
   if (user) return res.send("Username already exists");
@@ -35,11 +34,9 @@ router.post("/signup", async (req, res) => {
 
   req.body.password = await bcrypt.hash(req.body.password, 10);
   user = await db.User.create(req.body);
-  // Rerouting does not yet work
-  // res.redirect("/login");
-  // res.json(user.username);
 });
 
+// Get route for logout
 router.get("/logout", (req, res) => {
   req.logOut();
   res.redirect("/landing");
@@ -55,7 +52,7 @@ router.get("/api/art/:query", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
-// Get route for exhibition 
+// Get route for exhibition
 router.get("/api/art/:exhibitions", (req, res) => {
   const BASEURL = "http://api.thewalters.org/v1/exhibitions.json?title=";
   const KEY = "&apikey=" + process.env.WALTERSAPIKEY;
@@ -64,7 +61,36 @@ router.get("/api/art/:exhibitions", (req, res) => {
     .then((results) => res.json(results.data));
 });
 
-// General routing to home page
+// Update user object witih favorited art object
+router.put("/api/users/:id", (req, res) => {
+  const id = req.params.id;
+  const favorite = req.body.favorites;
+  db.User.findByIdAndUpdate(
+    id,
+    { $push: { favorites: favorite } },
+    { new: true }
+  )
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((error) => {
+      res.status(400).json(error);
+    });
+});
+
+// Get route for user favorites
+// router.get("/api/users", (req, res) => {
+//   db.User.findOne({
+//     where: {
+//       username: req.user.username,
+//     },
+//   }).then((data) => {
+//     console.log(data.favorites);
+//     res.json(data.favorites);
+//   });
+// });
+
+// Catchall routing to home page - if none of the above routes fire, this is the default
 router.use((req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

@@ -13,14 +13,7 @@ const user = new Schema({
     type: String,
     validate: [({ length }) => length >= 6, "Longstring should be longer."],
   },
-  favorites: [
-    {
-      primaryImage: String,
-      title: String,
-      displayLocation: String,
-      description: String,
-    },
-  ],
+  favorites: [],
 });
 
 const User = mongoose.model("User", user);
