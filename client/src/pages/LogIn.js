@@ -21,6 +21,8 @@ function Login() {
       withCredentials: true,
       url: "/login",
     }).then((results) => {
+      localStorage.clear();
+      localStorage.setItem("username", JSON.stringify(loginUsername));
       // TODO: figure out history.push login success issue
       // console.log(results);
       // if (results.status === 200) {
