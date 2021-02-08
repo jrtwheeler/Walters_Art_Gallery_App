@@ -1,4 +1,8 @@
 import React from "react";
+import "./style.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faEye } from '@fortawesome/free-solid-svg-icons';
+
 
 function Card(props) {
   const addtoCollection = () => {
@@ -11,42 +15,45 @@ function Card(props) {
       return (
         <div
           key={`result-${i}`}
-          className="card container-fluid mb-3 pt-3"
-          style={{ width: 25 + "rem" }}
+          className="container-fluid mb-3 pt-3"
+          style={{ width: 12 + "rem", height: "100%" }}
         >
+
           {/* This is an image/link to go to art.thewalters.org/detail/whateverimagenumber */}
           <a href={result.ResourceURL}
             target="_blank"
             rel="noreferrer">
             <img
-              className="card-img-top"
+              className=""
               src={result.PrimaryImage.Medium}
               alt={result.Title}
               variant="primary"
             />
           </a>
-          <div className="card-body">
-            <h4 className="card-title">{result.Title}</h4>
+          <div className="landingCard pt-3">
+            <h6 className="card-title text-center"><strong>{result.Title}</strong></h6>
             {/* note that "Collection" is "collectionArt" in the db schema */}
-            <h5 className="card-text">{result.Collection} </h5>
-            <h6>{result.DisplayLocation}</h6>
-            <p className="card-text">{result.Description} </p>
+            <h6 className="card-text text-center">{result.Collection}</h6>
+            {/* <p className="">{result.DisplayLocation}</p> */}
+            {/* <p className="card-text">{result.Description} </p> */}
+
             {/* This is a button/link to go to art.thewalters.org/detail/whateverimagenumber */}
-            <a href={result.ResourceURL}
+            <div className="text-center p-1">
+              <a href={result.ResourceURL}
               target="_blank"
               role="button"
-              className="btn btn-light"
+              className="btn btn-light landingBtn"
               rel="noreferrer">
-              See more
+              <h3><FontAwesomeIcon icon={faEye} style={{color: "#4A6479"}}/></h3>
             </a>
             <button
               href="#"
-              className="btn btn-light"
+              className="btn btn-light landingBtn"
               onClick={addtoCollection}
             >
-              {/* Add user validation and db action for favorite */}
-              Add to collection
+              <h3><FontAwesomeIcon icon={faPlus} style={{color: "#4A6479"}}/></h3>
             </button>
+            </div>
           </div>
         </div>
       );
