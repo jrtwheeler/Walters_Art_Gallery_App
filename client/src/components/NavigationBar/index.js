@@ -85,15 +85,18 @@ class NavigationBar extends Component {
   componentDidMount() {    
     if (localStorage.getItem("username") === null) {
       this.setState({
-        displayValue: "Login"
+        displayValue: "Login",
+        route: "/login"
+      });
+    } else {
+      this.setState({
+        displayValue: "Logout",
+        route: "/logout"
       });
     }
 
     
   }
-
-
-
 
   render () {
   return (
@@ -110,13 +113,8 @@ class NavigationBar extends Component {
               <Nav.Link href="/signup">Sign Up</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href={this.state.route}>{this.state.displayValue}</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/logout">Logout</Nav.Link>
-            </Nav.Item>
-            {/* // Replaced with a button; add onClickEvent that logs user out and reroutes to landing */}
-            {/* <Button variant="outline-dark text-light">Logout</Button> */}
           </Nav>
         </Navbar.Collapse>
       </Navbar>
