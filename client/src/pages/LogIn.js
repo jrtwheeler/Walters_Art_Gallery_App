@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import API from "../utils/API";
 import { useHistory } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 import Container from "../components/Container";
