@@ -11,18 +11,24 @@ const API = {
   },
   // Get user from Mongo database
   getUser: async function () {
-    let val = await axios.get("/api/auth/user");
-    console.log(val);
-    return val;
+    let user = await axios.get("/api/auth/user");
+    return user;
   },
-  // PLACEHOLDER CODE
-  // // Post user favorite to their collection
-  // saveFavorites: function (favoriteData) {
-  //   return axios.post("/api/users", favoriteData);
-  // },
-  // // Get user favorites and display in their collection - id is for unique user
-  // getFavorites: function (id) {
-  //   return axios.get("/api/users" + id);
+  // Update a user object with favorite data
+  updateUser: async function (userId, newUserData) {
+    const res = await fetch(`/api/users/${userId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newUserData),
+    });
+    const updated = await res.json();
+    console.log("check updated", updated);
+    return updated;
+  },
+  // PLACEHOLDER - may need for rendering favorites
+  // Get user favorites and display in their collection - id is for unique user
+  // getFavorites: function () {
+
   // },
 };
 

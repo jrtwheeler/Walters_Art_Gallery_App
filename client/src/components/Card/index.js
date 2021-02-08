@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import API from "../../utils/API";
 
 function Card(props) {
   const [show, setShow] = useState(false);
@@ -7,8 +8,11 @@ function Card(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const addtoCollection = () => {
-    console.log("Button");
+  const { user } = props;
+  console.log("card", props);
+  // Grab artObject data and send OR push to user object favorites array
+  const addToFavorites = (favorite) => {
+    return (e) => API.updateUser(user._id, { favorites: [favorite] });
   };
 
   if (props.results) {
@@ -28,7 +32,6 @@ function Card(props) {
           />
           <div className="card-body">
             <h4 className="card-title">{result.Title}</h4>
-            {/* note that "Collection" is "collectionArt" in the db schema */}
             <h5 className="card-text">{result.Collection} </h5>
             <h6>{result.DisplayLocation}</h6>
             <p className="card-text">{result.Description} </p>
@@ -53,13 +56,8 @@ function Card(props) {
                 It's a Modal! Yay!
               </Modal.Body>
             </Modal>
-
-            <button
-              href="#"
-              className="btn btn-light"
-              onClick={addtoCollection}
-            >
-              {/* Add user validation and db action for favorite */}
+            <button className="btn btn-light" onClick={addToFavorites(result)}>
+              {" "}
               Add to collection
             </button>
           </div>
