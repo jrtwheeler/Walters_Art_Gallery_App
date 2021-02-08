@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import styled from "styled-components";
 
@@ -75,7 +75,27 @@ const Styles = styled.div`
 //   }
 // }
 
-function NavigationBar(props) {
+class NavigationBar extends Component {
+  state = {
+    displayValue: "",
+    route: "",
+    error: "",
+  };
+
+  componentDidMount() {    
+    if (localStorage.getItem("username") === null) {
+      this.setState({
+        displayValue: "Login"
+      });
+    }
+
+    
+  }
+
+
+
+
+  render () {
   return (
     <Styles>
       <Navbar expand="lg">
@@ -102,5 +122,6 @@ function NavigationBar(props) {
       </Navbar>
     </Styles>
   );
+  }
 }
 export default NavigationBar;

@@ -40,7 +40,6 @@ class Collections extends Component {
   };
 
   render () {
-    console.log(this.state.results)
     return (
     <div>
       <Container style={{ marginTop: 25 }}>
