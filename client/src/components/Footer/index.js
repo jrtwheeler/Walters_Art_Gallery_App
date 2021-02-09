@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee, faHeart } from '@fortawesome/free-solid-svg-icons';
 
-
 function Footer(props) {
     return (
         <footer className="footer card-footer text-muted text-center">

@@ -6,7 +6,6 @@ import Col from "../components/Col";
 import SearchForm from "../components/SearchForm";
 import FavoriteResults from "../components/FavoriteResults";
 import API from "../utils/API";
-
 class Collections extends Component {
   state = {
     search: "",
@@ -15,7 +14,7 @@ class Collections extends Component {
   };
 
   componentDidMount() {
-    this.getExhibitionsfromAPI("Archimedes");
+    this.getExhibitionsfromAPI("Egypt");
   }
 
   getExhibitionsfromAPI = (exhibitions) => {
@@ -38,7 +37,6 @@ class Collections extends Component {
   };
 
   render() {
-    console.log(this.state.results);
     return (
       <div>
         <Container style={{ marginTop: 25 }}>

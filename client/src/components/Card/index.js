@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import Modal from "react-bootstrap/Modal";
 import API from "../../utils/API";
+import "./style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 
 function Card(props) {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const { user } = props;
   console.log("card", props);
   const addToFavorites = (favorite) => {
@@ -19,46 +16,49 @@ function Card(props) {
       return (
         <div
           key={`result-${i}`}
-          className="card container-fluid mb-3 pt-3"
-          style={{ width: 25 + "rem" }}
+          className="container-fluid mb-3 pt-3"
+          style={{ width: 12 + "rem", height: "100%" }}
         >
-          <img
-            className="card-img-top"
-            src={result.PrimaryImage.Medium}
-            alt={result.Title}
-            variant="primary"
-            onClick={handleShow}
-          />
-          <div className="card-body">
-            <h4 className="card-title">{result.Title}</h4>
-            <h5 className="card-text">{result.Collection} </h5>
-            <h6>{result.DisplayLocation}</h6>
-            <p className="card-text">{result.Description} </p>
-            <button
+          {/* This is an image/link to go to art.thewalters.org/detail/whateverimagenumber */}
+          <a href={result.ResourceURL} target="_blank" rel="noreferrer">
+            <img
+              className=""
+              src={result.PrimaryImage.Medium}
+              alt={result.Title}
               variant="primary"
-              onClick={handleShow}
-              className="btn btn-light"
-            >
-              {/* Add modal popout for larger view */}
-              See more
-            </button>
-            <Modal show={show} onHide={handleClose}>
-              <Modal.Header closeButton>
-                <Modal.Title>{result.Title}</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <img
-                  className="card-img-top"
-                  src={result.PrimaryImage.Large}
-                  alt={result.Title}
-                />
-                It's a Modal! Yay!
-              </Modal.Body>
-            </Modal>
-            <button className="btn btn-light" onClick={addToFavorites(result)}>
-              {" "}
-              Add to collection
-            </button>
+            />
+          </a>
+          <div className="landingCard pt-3">
+            <h6 className="card-title text-center">
+              <strong>{result.Title}</strong>
+            </h6>
+            <h6 className="card-text text-center">{result.Collection}</h6>
+            {/* <p className="">{result.DisplayLocation}</p> */}
+            {/* <p className="card-text">{result.Description} </p> */}
+
+            {/* This is a button/link to go to art.thewalters.org/detail/whateverimagenumber */}
+            <div className="text-center p-1">
+              <a
+                href={result.ResourceURL}
+                target="_blank"
+                role="button"
+                className="btn btn-light landingBtn"
+                rel="noreferrer"
+              >
+                <h3>
+                  <FontAwesomeIcon icon={faEye} style={{ color: "#4A6479" }} />
+                </h3>
+              </a>
+              <button
+                href="#"
+                className="btn btn-light landingBtn"
+                onClick={addToFavorites(result)}
+              >
+                <h3>
+                  <FontAwesomeIcon icon={faPlus} style={{ color: "#4A6479" }} />
+                </h3>
+              </button>
+            </div>
           </div>
         </div>
       );

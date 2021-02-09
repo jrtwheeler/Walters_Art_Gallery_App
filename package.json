@@ -6,6 +6,7 @@
   "private": true,
   "homepage": "https://jrtwheeler.github.io/Walters_App_Gallery.git",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
