@@ -13,6 +13,9 @@ function Card(props) {
 
   if (props.results) {
     const card = props.results.map((result, i) => {
+      console.log(result.ResourceURL)
+      let slash = "/"
+      let nonsense = "https://art.thewalters.org" + slash + "detail" + result.ResourceURL.slice(result.ResourceURL.lastIndexOf("/"), result.ResourceURL.length)
       return (
         <div
           key={`result-${i}`}
@@ -20,7 +23,7 @@ function Card(props) {
           style={{ width: 12 + "rem", height: "100%" }}
         >
           {/* This is an image/link to go to art.thewalters.org/detail/whateverimagenumber */}
-          <a href={result.ResourceURL} target="_blank" rel="noreferrer">
+          <a href={nonsense} target="_blank">
             <img
               className=""
               src={result.PrimaryImage.Medium}
@@ -43,11 +46,10 @@ function Card(props) {
             {/* This is a button/link to go to art.thewalters.org/detail/whateverimagenumber */}
             <div className="text-center p-1">
               <a
-                href={result.ResourceURL}
+                href={nonsense}
                 target="_blank"
                 role="button"
                 className="btn btn-light landingBtn"
-                rel="noreferrer"
               >
                 <h3>
                   <FontAwesomeIcon icon={faEye} style={{ color: "#4A6479" }} />
