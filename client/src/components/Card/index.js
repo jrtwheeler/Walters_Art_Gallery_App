@@ -32,7 +32,11 @@ function Card(props) {
             <h6 className="card-title text-center">
               <strong>{result.Title}</strong>
             </h6>
-            <h6 className="card-text text-center">{result.Collection}</h6>
+
+            <h6 className="card-text text-center">{result.Creator}</h6>
+            <h6 className="card-text text-center">
+              <i>{result.Collection}</i>
+            </h6>
             {/* <p className="">{result.DisplayLocation}</p> */}
             {/* <p className="card-text">{result.Description} </p> */}
 
