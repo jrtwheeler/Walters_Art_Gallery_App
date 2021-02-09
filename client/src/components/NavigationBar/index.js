@@ -30,7 +30,7 @@ class NavigationBar extends Component {
   };
 
   componentDidMount() {
-    if (!this.props.user) {
+    if (this.props.user === null) {
       this.setState({
         displayValue: "Login",
         route: "/login",
