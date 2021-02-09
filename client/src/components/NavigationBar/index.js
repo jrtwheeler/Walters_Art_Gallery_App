@@ -22,7 +22,6 @@ const Styles = styled.div`
     }
   }
 `;
-
 class NavigationBar extends Component {
   state = {
     displayValue: "",
@@ -31,19 +30,17 @@ class NavigationBar extends Component {
   };
 
   componentDidMount() {
-    if (localStorage.getItem("username") === null) {
+    if (this.props.user === null) {
       this.setState({
         displayValue: "Login",
-        route: "/login"
+        route: "/login",
       });
     } else {
       this.setState({
         displayValue: "Logout",
-        route: "/logout"
+        route: "/logout",
       });
     }
-
-
   }
 
   render() {
@@ -61,7 +58,9 @@ class NavigationBar extends Component {
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link href={this.state.route}>{this.state.displayValue}</Nav.Link>
+                <Nav.Link href={this.state.route}>
+                  {this.state.displayValue}
+                </Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
