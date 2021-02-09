@@ -13,9 +13,15 @@ function Card(props) {
 
   if (props.results) {
     const card = props.results.map((result, i) => {
-      console.log(result.ResourceURL)
-      let slash = "/"
-      let nonsense = "https://art.thewalters.org" + slash + "detail" + result.ResourceURL.slice(result.ResourceURL.lastIndexOf("/"), result.ResourceURL.length)
+      let slash = "/";
+      let nonsense =
+        "https://art.thewalters.org" +
+        slash +
+        "detail" +
+        result.ResourceURL.slice(
+          result.ResourceURL.lastIndexOf("/"),
+          result.ResourceURL.length
+        );
       return (
         <div
           key={`result-${i}`}
@@ -35,14 +41,10 @@ function Card(props) {
             <h6 className="card-title text-center">
               <strong>{result.Title}</strong>
             </h6>
-
             <h6 className="card-text text-center">{result.Creator}</h6>
             <h6 className="card-text text-center">
               <i>{result.Collection}</i>
             </h6>
-            {/* <p className="">{result.DisplayLocation}</p> */}
-            {/* <p className="card-text">{result.Description} </p> */}
-
             {/* This is a button/link to go to art.thewalters.org/detail/whateverimagenumber */}
             <div className="text-center p-1">
               <a
