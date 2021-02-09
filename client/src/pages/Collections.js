@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
-// import Card from "../components/Card";
+import Card from "../components/Card";
 import SearchForm from "../components/SearchForm";
 import FavoriteResults from "../components/FavoriteResults";
 import API from "../utils/API";
@@ -58,7 +58,7 @@ class Collections extends Component {
           </Row>
           <Row>
             <Col size="md-12">
-              {/* <Card results={this.state.results} /> */}
+              <Card results={this.state.results} />
               <FavoriteResults user={this.props.user} />
             </Col>
           </Row>
