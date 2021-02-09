@@ -1,27 +1,27 @@
 import React from "react";
-import plan from '../images/plan-visit-01.png';
+import plan from "../images/plan-visit-01.png";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
 import ControlledCarousel from "../components/Carousel";
 import Directory from "../components/Directory";
 
-
-function Landing() {
+function Landing(props) {
+  console.log("landing", props);
   return (
     <div>
-      <Container style={{ marginTop: 25 }}>  
+      <Container style={{ marginTop: 25 }}>
         <Row>
-          <Col size="lg-6" >
+          <Col size="lg-6">
             <div className="d-flex justify-content-center">
-            <img src={plan} alt="Plan your visit" size="400px"/>
+              <img src={plan} alt="Plan your visit" size="400px" />
             </div>
           </Col>
           <Col size="lg-6">
-              <ControlledCarousel />
+            <ControlledCarousel />
           </Col>
         </Row>
-        <Directory />
+        <Directory user={props.user} />
       </Container>
     </div>
   );

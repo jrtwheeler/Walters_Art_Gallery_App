@@ -11,16 +11,19 @@ class Directory extends Component {
     search: "",
     error: "",
     results: [],
-    filtered: []
+    filtered: [],
   };
 
+  // Default search results
   componentDidMount() {
     this.searchArchive("cups");
   }
 
   searchArchive = (query) => {
     API.getResults(query)
-      .then((res) => this.setState({ results: res.data.Items, filtered: res.data.Items }))
+      .then((res) =>
+        this.setState({ results: res.data.Items, filtered: res.data.Items })
+      )
       .catch((err) => console.log(err));
   };
 
@@ -29,7 +32,9 @@ class Directory extends Component {
     const name = event.target.name;
     this.setState({
       [name]: value,
-      filtered: this.state.results.filter(result => result.DisplayLocation !== "Not On View")
+      filtered: this.state.results.filter(
+        (result) => result.DisplayLocation !== "Not On View"
+      ),
     });
   };
 
@@ -42,8 +47,7 @@ class Directory extends Component {
     return (
       <Container>
         <Row>
-          <Col size="md-4">
-          </Col>
+          <Col size="md-4"></Col>
           <Col size="md-4">
             <hr />
             <SearchForm
@@ -56,7 +60,7 @@ class Directory extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card results={this.state.filtered} />
+            <Card user={this.props.user} results={this.state.filtered} />
           </Col>
         </Row>
       </Container>
