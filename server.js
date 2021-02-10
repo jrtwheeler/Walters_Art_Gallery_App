@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 
 // Connect to the Mongo DB
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/artapp', {
   useUnifiedTopology: true,
   useNewUrlParser: true,
   useCreateIndex: true,
