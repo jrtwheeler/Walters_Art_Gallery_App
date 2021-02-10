@@ -31,8 +31,11 @@ const logout = (req, res) => {
 const user = (req, res) => {
   if (!req.user)
     return res.status(403).json({ errors: ["Login to get the info"] });
-
-  return res.status(200).json({ user: req.user });
+  const userToSend = {
+    username: req.user.username,
+    favorites: req.user.favorites,
+  };
+  return res.status(200).json({ user: userToSend });
 };
 
 module.exports = {
