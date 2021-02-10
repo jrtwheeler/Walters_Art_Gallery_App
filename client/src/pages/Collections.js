@@ -10,7 +10,7 @@ function Collections(props) {
       <Container style={{ marginTop: 25 }}>
         <Row>
           <Col size="md-12">
-            <h3>My Collections</h3>
+            <h3>My Collection</h3>
           </Col>
         </Row>
         <Row>

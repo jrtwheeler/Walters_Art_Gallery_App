@@ -34,7 +34,7 @@ function NavigationBar(props) {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <Nav.Item>
-              <Nav.Link href="/collections">My Collections</Nav.Link>
+              <Nav.Link href="/collections">My Collection</Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
