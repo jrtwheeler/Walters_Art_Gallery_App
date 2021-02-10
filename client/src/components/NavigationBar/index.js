@@ -33,26 +33,21 @@ function NavigationBar(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            {props.user && (
-              <Nav.Item>
-                <Nav.Link href="/collections">My Collections</Nav.Link>
-              </Nav.Item>
-            )}
-            {!props.user && (
-              <Nav.Item>
-                <Nav.Link href="/signup">Sign Up</Nav.Link>
-              </Nav.Item>
-            )}
-            {!props.user && (
-              <Nav.Item>
-                <Nav.Link href="/login">Login</Nav.Link>
-              </Nav.Item>
-            )}
-            {props.user && (
-              <Nav.Item>
-                <Nav.Link href="/logout">Logout</Nav.Link>
-              </Nav.Item>
-            )}
+            <Nav.Item>
+              <Nav.Link href="/collections">My Collections</Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link href="/signup">Sign Up</Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link href="/login">Login</Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link href="/logout">Logout</Nav.Link>
+            </Nav.Item>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

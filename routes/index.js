@@ -38,8 +38,11 @@ router.post("/signup", async (req, res) => {
 
 // Get route for logout
 router.get("/logout", (req, res) => {
-  req.logOut();
-  res.redirect("/landing");
+  req.session.destroy(() => {
+    // req.logOut();
+    res.redirect("/landing");
+    res.json(["log", "out"]);
+  });
 });
 
 // -----------------------App Routing-----------------------
@@ -77,18 +80,6 @@ router.put("/api/users/:id", (req, res) => {
       res.status(400).json(error);
     });
 });
-
-// Get route for user favorites
-// router.get("/api/users", (req, res) => {
-//   db.User.findOne({
-//     where: {
-//       username: req.user.username,
-//     },
-//   }).then((data) => {
-//     console.log(data.favorites);
-//     res.json(data.favorites);
-//   });
-// });
 
 // Catchall routing to home page - if none of the above routes fire, this is the default
 router.use((req, res) => {

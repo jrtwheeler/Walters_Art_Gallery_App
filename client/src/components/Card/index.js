@@ -29,7 +29,7 @@ function Card(props) {
           style={{ width: 12 + "rem", height: "100%" }}
         >
           {/* This is an image/link to go to art.thewalters.org/detail/whateverimagenumber */}
-          <a href={nonsense} target="_blank">
+          <a href={nonsense} target="_blank" rel="noreferrer">
             <img
               className=""
               src={result.PrimaryImage.Medium}

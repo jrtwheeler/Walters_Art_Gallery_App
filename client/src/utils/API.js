@@ -25,11 +25,6 @@ const API = {
     console.log("check updated", updated);
     return updated;
   },
-  // PLACEHOLDER - may need for rendering favorites
-  // Get user favorites and display in their collection - id is for unique user
-  // getFavorites: function () {
-
-  // },
 };
 
 export default API;
