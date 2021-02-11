@@ -5,6 +5,7 @@ import Col from "../components/Col";
 import FavoriteCard from "../components/FavoriteCard";
 
 function Collections(props) {
+  
   return (
     <div>
       <Container style={{ marginTop: 25 }}>
