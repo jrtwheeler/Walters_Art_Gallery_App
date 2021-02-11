@@ -7,7 +7,6 @@ import ControlledCarousel from "../components/Carousel";
 import Directory from "../components/Directory";
 
 function Landing(props) {
-  console.log("landing", props);
   return (
     <div>
       <Container style={{ marginTop: 25 }}>
