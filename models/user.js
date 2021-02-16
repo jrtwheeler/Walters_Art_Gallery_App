@@ -10,10 +10,6 @@ const user = new Schema({
   },
   favorites: [
     {
-      // primaryImage: String,
-      // title: String,
-      // displayLocation: String,
-      // description: String,
     }
   ],
 });

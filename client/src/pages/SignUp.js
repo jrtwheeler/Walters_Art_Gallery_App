@@ -22,7 +22,7 @@ function SignUp() {
       url: "http://localhost:3001/signup",
     }).then(() => {
       // add conditionals for routing
-      history.push("/collections");
+      history.push("/login");
       // results.request.responseURL;
     });
   };
