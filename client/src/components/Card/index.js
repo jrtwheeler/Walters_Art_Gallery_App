@@ -52,6 +52,7 @@ function Card(props) {
                 target="_blank"
                 role="button"
                 className="btn btn-light landingBtn"
+                rel="noreferrer"
               >
                 <h3>
                   <FontAwesomeIcon icon={faEye} style={{ color: "#4A6479" }} />
@@ -61,6 +62,7 @@ function Card(props) {
                 href="#"
                 className="btn btn-light landingBtn"
                 onClick={addToFavorites(result)}
+                rel="noreferrer"
               >
                 <h3>
                   <FontAwesomeIcon icon={faPlus} style={{ color: "#4A6479" }} />

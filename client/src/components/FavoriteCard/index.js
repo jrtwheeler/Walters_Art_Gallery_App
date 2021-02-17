@@ -12,12 +12,9 @@ function FavoriteCard(props) {
     API.getUser().then((response) => setUser(response.data.user));
   }, []);
 
-  console.log(user)
-
   const addToFavorites = (favorite) => {
     return (e) => API.updateUser(user._id, { favorites: [favorite] });
   };
-
 
   if (user.favorites) {
     const favoriteCard = user.favorites.map((favorite, i) => {
