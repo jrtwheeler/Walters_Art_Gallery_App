@@ -95,8 +95,13 @@ function FavoriteCard(props) {
     });
     return <div className="row">{favoriteCard}</div>;
   } else {
-    return <p>You don't have any favorites yet! Go to the <a href="/landing">Home</a>
-     page to start adding to your collection</p>;
+    return (
+      <p>
+        You don't have any favorites yet! Sign up for an account and head over
+        to the <a href="/landing">home </a>
+        page to start adding to your collection.
+      </p>
+    );
   }
 }
 export default FavoriteCard;
