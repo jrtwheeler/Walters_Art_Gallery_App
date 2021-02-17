@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 import ReactTooltip from "react-tooltip";
 import "./style.css";
 
@@ -14,9 +14,9 @@ function FavoriteCard(props) {
 
   console.log(user);
 
-  const addToFavorites = (favorite) => {
-    return (e) => API.updateUser(user._id, { favorites: [favorite] });
-  };
+  // const addToFavorites = (favorite) => {
+  //   return (e) => API.updateUser(user._id, { favorites: [favorite] });
+  // };
 
   if (user.favorites) {
     const favoriteCard = user.favorites.map((favorite, i) => {
@@ -79,7 +79,7 @@ function FavoriteCard(props) {
               >
                 See more details
               </ReactTooltip>
-              <button
+              {/* <button
                 href="#"
                 className="btn btn-light landingBtn"
                 onClick={addToFavorites(favorite)}
@@ -87,7 +87,7 @@ function FavoriteCard(props) {
                 <h3>
                   <FontAwesomeIcon icon={faPlus} style={{ color: "#4A6479" }} />
                 </h3>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -95,7 +95,8 @@ function FavoriteCard(props) {
     });
     return <div className="row">{favoriteCard}</div>;
   } else {
-    return <p>You don't have any favorites yet!</p>;
+    return <p>You don't have any favorites yet! Go to the <a href="/landing">Home</a>
+     page to start adding to your collection</p>;
   }
 }
 export default FavoriteCard;
