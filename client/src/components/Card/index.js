@@ -75,6 +75,7 @@ function Card(props) {
                 onClick={addToFavorites(result)}
                 data-tip
                 data-for="addFavorite"
+                rel="noreferrer"
               >
                 <h3>
                   <FontAwesomeIcon icon={faPlus} style={{ color: "#4A6479" }} />
