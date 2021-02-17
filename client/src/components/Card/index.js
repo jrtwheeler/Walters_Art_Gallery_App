@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
+import ReactTooltip from "react-tooltip";
 
 function Card(props) {
   const { user } = props;
@@ -50,22 +51,43 @@ function Card(props) {
               <a
                 href={nonsense}
                 target="_blank"
+                rel="noreferrer"
                 role="button"
                 className="btn btn-light landingBtn"
+                data-tip
+                data-for="seeMore"
               >
                 <h3>
                   <FontAwesomeIcon icon={faEye} style={{ color: "#4A6479" }} />
                 </h3>
               </a>
+              <ReactTooltip
+                id="seeMore"
+                place="top"
+                effect="solid"
+                backgroundColor="#4A6479"
+              >
+                See more details
+              </ReactTooltip>
               <button
                 href="#"
                 className="btn btn-light landingBtn"
                 onClick={addToFavorites(result)}
+                data-tip
+                data-for="addFavorite"
               >
                 <h3>
                   <FontAwesomeIcon icon={faPlus} style={{ color: "#4A6479" }} />
                 </h3>
               </button>
+              <ReactTooltip
+                id="addFavorite"
+                place="top"
+                effect="solid"
+                backgroundColor="#4A6479"
+              >
+                Add to My Collection
+              </ReactTooltip>
             </div>
           </div>
         </div>
