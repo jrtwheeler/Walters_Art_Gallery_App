@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faEye } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 
 function FavoriteCard(props) {
-  console.log(props.user.favorites);
 
-  const { user } = props;
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    API.getUser().then((response) => setUser(response.data.user));
+  }, []);
+
+  console.log(user)
+
   const addToFavorites = (favorite) => {
     return (e) => API.updateUser(user._id, { favorites: [favorite] });
   };
+
 
   if (user.favorites) {
     const favoriteCard = user.favorites.map((favorite, i) => {
@@ -23,7 +30,6 @@ function FavoriteCard(props) {
           favorite.ResourceURL.lastIndexOf("/"),
           favorite.ResourceURL.length
         );
-      console.log(favorite);
       return (
         <div
           key={`favorite-${i}`}
