@@ -40,7 +40,7 @@ router.post("/signup", async (req, res) => {
 router.get("/logout", (req, res) => {
   req.session.destroy(() => {
     // req.logOut();
-    res.redirect("/landing");
+    res.redirect("/");
     res.json(["log", "out"]);
   });
 });
