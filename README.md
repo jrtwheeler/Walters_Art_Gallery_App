@@ -24,7 +24,7 @@ The Walters Art Gallery App gives the user a chance to visit the Walters Art Gal
 * MongoDB
 * Nodejs
 * Passport
-* Javascript
+* JavaScript
 * jQuery
 * CSS
 * HTML
